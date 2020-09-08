@@ -4,18 +4,18 @@ import java.util.HashMap;
 
 public class IDFileResponse {
 	
-	private HashMap values ;
+	private HashMap fields ;
 	
 	public IDFileResponse() {
-		values = new HashMap();
+		fields = new HashMap();
 	}
 
-	public HashMap getValues() {
-		return values;
+	public HashMap getFields() {
+		return fields;
 	}
 
-	public void setValues(HashMap values) {
-		this.values = values;
+	public void setFields(HashMap values) {
+		this.fields = values;
 	}
 
 }

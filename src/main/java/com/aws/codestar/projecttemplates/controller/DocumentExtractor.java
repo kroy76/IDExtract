@@ -71,37 +71,37 @@ public class DocumentExtractor {
 	    			
 	    			if(block.getText().equals("P") && arrayBlocks.get(i+1).getText().equals("USA")) {
 	    				if(arrayBlocks.get(i+2).getText().matches("[0-9]+")) {
-	    					result.getValues().put("IDNumber",arrayBlocks.get(i+2).getText() );
+	    					result.getFields().put("IDNumber",arrayBlocks.get(i+2).getText() );
 	    				}
 	    			}
 	    			if(block.getText().contains("Surname") || block.getText().contains("Apellidos")) {
-	    				result.getValues().put("Surname",arrayBlocks.get(i+1).getText() );
+	    				result.getFields().put("Surname",arrayBlocks.get(i+1).getText() );
 	    			}
 	    			if(block.getText().contains("Given Names") || block.getText().contains("Prenoms")) {
 	    				if(arrayBlocks.get(i+1).getText().length()>2) {
-	    					result.getValues().put("FirstName",arrayBlocks.get(i+1).getText() );
+	    					result.getFields().put("FirstName",arrayBlocks.get(i+1).getText() );
 	    				} else {
-	    					result.getValues().put("FirstName",arrayBlocks.get(i+2).getText() );
+	    					result.getFields().put("FirstName",arrayBlocks.get(i+2).getText() );
 	    				}
 	    			}
 	    			if(block.getText().contains("Nationality") || block.getText().contains("Nationalite")) {
-	    				result.getValues().put("Nationality",arrayBlocks.get(i+1).getText() );
+	    				result.getFields().put("Nationality",arrayBlocks.get(i+1).getText() );
 	    			}
 	    			if(block.getText().contains("Date of birth") || block.getText().contains("Date de naissance")) {
-	    				result.getValues().put("DOB",arrayBlocks.get(i+1).getText() );
+	    				result.getFields().put("DOB",arrayBlocks.get(i+1).getText() );
 	    			}
 	    			if(block.getText().contains("Place of birth") || block.getText().contains("Lieu de naissance")) {
-	    				result.getValues().put("BirthPlace",arrayBlocks.get(i+2).getText() );
+	    				result.getFields().put("BirthPlace",arrayBlocks.get(i+2).getText() );
 	    			}
 
 	    			if(block.getText().contains("Sexe") || block.getText().contains("Sexo")) {
-	    				result.getValues().put("Sex",arrayBlocks.get(i+2).getText() );
+	    				result.getFields().put("Sex",arrayBlocks.get(i+2).getText() );
 	    			}
 	    			if(block.getText().contains("Authority") ) {
-	    				result.getValues().put("IssueDate",arrayBlocks.get(i+1).getText() );
+	    				result.getFields().put("IssueDate",arrayBlocks.get(i+1).getText() );
 	    			}
 	    			if(block.getText().contains("Department of State"))  {
-	    				result.getValues().put("ExpiryDate",arrayBlocks.get(i+1).getText() );
+	    				result.getFields().put("ExpiryDate",arrayBlocks.get(i+1).getText() );
 	    			}
 	    			case "WORD":
 	    		}
@@ -119,29 +119,29 @@ public class DocumentExtractor {
 	    		case "LINE":
 	    			lineNo++;
 	    			if(lineNo==3) {
-	    				result.getValues().put("Nationality",arrayBlocks.get(i).getText() );	    				
+	    				result.getFields().put("Nationality",arrayBlocks.get(i).getText() );	    				
 	    			}
 	    			if(block.getText().contains("Licencia") || block.getText().contains("License")) {
-	    				result.getValues().put("IDNumber",arrayBlocks.get(i+1).getText().split(" ")[1] );
-	    				result.getValues().put("FirstName",arrayBlocks.get(i+2).getText() );
-	    				result.getValues().put("Surname",arrayBlocks.get(i+5).getText() );
-	    				result.getValues().put("AddressLine1",arrayBlocks.get(i+6).getText() );
-	    				result.getValues().put("AddressLine2",arrayBlocks.get(i+7).getText() );
-	    				result.getValues().put("AddressLine3",arrayBlocks.get(i+8).getText() );
+	    				result.getFields().put("IDNumber",arrayBlocks.get(i+1).getText().split(" ")[1] );
+	    				result.getFields().put("FirstName",arrayBlocks.get(i+2).getText() );
+	    				result.getFields().put("Surname",arrayBlocks.get(i+5).getText() );
+	    				result.getFields().put("AddressLine1",arrayBlocks.get(i+6).getText() );
+	    				result.getFields().put("AddressLine2",arrayBlocks.get(i+7).getText() );
+	    				result.getFields().put("AddressLine3",arrayBlocks.get(i+8).getText() );
 
 	    			}
 	    			if(block.getText().contains("SEX") || block.getText().contains("HGT/EST")) {
-	    				result.getValues().put("Nationality",arrayBlocks.get(i+1).getText().substring(0, 1) );
+	    				result.getFields().put("Nationality",arrayBlocks.get(i+1).getText().substring(0, 1) );
 	    			}
 	    			if(block.getText().contains("DOB") || block.getText().contains("NAC")) {
 	    				String dateVal = arrayBlocks.get(i).getText().split(" ")[1];
 	    				dateVal = dateVal.substring(0,2) + " " + dateVal.substring(2,5) + " " + dateVal.substring(5);
-	    				result.getValues().put("DOB", dateVal );
+	    				result.getFields().put("DOB", dateVal );
 	    			}
 	    			if(block.getText().contains("EXP")) {
 	    				String dateVal = arrayBlocks.get(i).getText().split(" ")[1];
 	    				dateVal = dateVal.substring(0,2) + " " + dateVal.substring(2,5) + " " + dateVal.substring(5);
-	    				result.getValues().put("EXP", dateVal );
+	    				result.getFields().put("EXP", dateVal );
 	    			}
 	    			break;
 	    			case "WORD":
