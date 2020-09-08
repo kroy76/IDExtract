@@ -131,7 +131,7 @@ public class DocumentExtractor {
 
 	    			}
 	    			if(block.getText().contains("SEX") || block.getText().contains("HGT/EST")) {
-	    				result.getFields().put("Nationality",arrayBlocks.get(i+1).getText().substring(0, 1) );
+	    				result.getFields().put("Sex",arrayBlocks.get(i+1).getText().substring(0, 1) );
 	    			}
 	    			if(block.getText().contains("DOB") || block.getText().contains("NAC")) {
 	    				String dateVal = arrayBlocks.get(i).getText().split(" ")[1];
