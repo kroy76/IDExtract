@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 public class HelloController {
 
-	@RequestMapping("/")
+	@RequestMapping("/ID")
 	public String index() {
 		return "ID Extract Health Check!";
 	}
